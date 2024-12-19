@@ -1,5 +1,5 @@
 export default function () {
     return (
-        <h1>JS Framework</h1>
+        <h1 class="text-3xl font-bold text-green-300">JS Framework</h1>
     )
 }

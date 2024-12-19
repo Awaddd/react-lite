@@ -1,4 +1,5 @@
 import Title from "./title";
+import "./index.css";
 
 function App() {
     return (

@@ -1,8 +1,8 @@
 type Listener<T> = (state: T) => void;
 
 export class ObservableState<T> {
-  listeners: Listener<T>[];
-  state: T;
+  protected listeners: Listener<T>[];
+  protected state: T;
 
   constructor(initialState: T) {
     this.state = initialState;
@@ -13,13 +13,13 @@ export class ObservableState<T> {
     this.listeners.push(listener);
   }
 
-  notify() {
+  protected notify() {
     for (const listener of this.listeners) {
       listener(this.state);
     }
   }
 
-  set(newState: T) {
+  protected set(newState: T) {
     this.state = newState;
     this.notify();
   }

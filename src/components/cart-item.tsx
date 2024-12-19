@@ -8,7 +8,7 @@ type Props = {
 export default function ({ item }: Props) {
     function addToCart() {
         console.log("Adding to cart", item)
-        cart.set([...cart.state, item])
+        cart.add(item)
     }
 
     return (

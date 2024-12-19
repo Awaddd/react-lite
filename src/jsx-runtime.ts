@@ -24,7 +24,9 @@ export const jsx = {
     for (const [key, value] of Object.entries(props)) {
       if (key === "children") continue;
       else if (key === "className") element.setAttribute("class", value);
-      else element.setAttribute(key, value);
+      else if (key.startsWith("on")) {
+        element.addEventListener(key.slice(2).toLowerCase(), value);
+      } else element.setAttribute(key, value);
     }
 
     element.append(...props.children);

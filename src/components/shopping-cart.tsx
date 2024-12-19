@@ -3,7 +3,7 @@ import CartItem from "./cart-item"
 import cart from "@/state/cart"
 
 export default function () {
-    const items: Product[] = cart.items
+    const items: Product[] = cart.state
 
     cart.subscribe(state => {
         console.log("items", state)

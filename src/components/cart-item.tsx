@@ -1,13 +1,14 @@
+import cart from "@/state/cart"
+import { Product } from "@/types"
+
 type Props = {
-    item: {
-        name: string;
-        price: number;
-    }
+    item: Product
 }
 
 export default function ({ item }: Props) {
     function addToCart() {
         console.log("Adding to cart", item)
+        cart.add(item)
     }
 
     return (

@@ -1,3 +1,4 @@
+import { Product } from "@/types"
 import CartItem from "./cart-item"
 
 export default function () {
@@ -9,7 +10,7 @@ export default function () {
     )
 }
 
-const items = [
+const items: Product[] = [
     { name: "Shoes", price: 10 },
     { name: "Jumper", price: 20 },
     { name: "Tennis Racket", price: 30 },

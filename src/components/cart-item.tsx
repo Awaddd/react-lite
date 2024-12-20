@@ -1,20 +1,19 @@
 import cart from "@/state/cart"
-import { Product } from "@/types"
+import { CartProduct, Product } from "@/types"
 
 type Props = {
-    item: Product
-    index: number
+    item: Product | CartProduct
     action?: "add" | "remove"
 }
 
-export default function ({ item, index, action = "add" }: Props) {
+export default function ({ item, action = "add" }: Props) {
     function addToCart() {
         console.log("Adding to cart", item)
         cart.add(item)
     }
 
     function removeFromCart() {
-        cart.remove(index)
+        cart.remove(item as CartProduct)
     }
 
     const AddButton = <button class="text-gray-400" onClick={addToCart}>Add</button>
@@ -25,6 +24,7 @@ export default function ({ item, index, action = "add" }: Props) {
             <div class="flex flex-col gap-1.5">
                 <span class="text-gray-400">{item.name}</span>
                 <span class="text-yellow-400">£{item.price}</span>
+                {"count" in item && <span>{item.count}</span>}
             </div>
             {action === "add" ? AddButton : RemoveButton}
         </div>

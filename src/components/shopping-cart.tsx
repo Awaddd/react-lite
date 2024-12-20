@@ -6,7 +6,7 @@ export default function () {
     cart.subscribe(items => {
         render(
             document.getElementById("shopping-cart-items"),
-            items.map((item, i) => <CartItem index={i} item={item} action="remove" />)
+            items.map((item) => <CartItem item={item} action="remove" />)
         )
     })
 

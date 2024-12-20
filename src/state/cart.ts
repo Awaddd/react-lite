@@ -1,7 +1,7 @@
-import { Product } from "@/types";
+import { CartProduct, Product } from "@/types";
 import { ObservableState } from "./observable";
 
-class CartState extends ObservableState<Product[]> {
+class CartState extends ObservableState<CartProduct[]> {
   get total() {
     return this.state.reduce((prev, product) => prev + product.price, 0);
   }
@@ -11,11 +11,31 @@ class CartState extends ObservableState<Product[]> {
   }
 
   add(item: Product) {
-    this.set([...this.state, item]);
+    const index = this.state.findIndex(({ id }) => id === item.id);
+
+    if (index === -1) {
+      const modifiedItem = {
+        ...item,
+        count: 1,
+      };
+      this.set([...this.state, modifiedItem]);
+    }
+
+    const clone = this.state.slice();
+    clone[index].count++;
+    this.set(clone);
   }
 
-  remove(index: number) {
-    const updated = this.state.filter((_, j) => index !== j);
+  remove(item: CartProduct) {
+    if (item.count > 1) {
+      const index = this.state.findIndex(({ id }) => id === item.id);
+      const clone = this.state.slice();
+      clone[index].count--;
+      this.set(clone);
+      return;
+    }
+
+    const updated = this.state.filter(({ id }) => id !== item.id);
     this.set(updated);
   }
 }

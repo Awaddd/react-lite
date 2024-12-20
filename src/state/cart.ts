@@ -2,6 +2,10 @@ import { Product } from "@/types";
 import { ObservableState } from "./observable";
 
 class CartState extends ObservableState<Product[]> {
+  get total() {
+    return this.state.reduce((prev, product) => prev + product.price, 0);
+  }
+
   get items() {
     return this.state;
   }

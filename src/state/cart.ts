@@ -3,7 +3,12 @@ import { ObservableState } from "./observable";
 
 class CartState extends ObservableState<CartProduct[]> {
   get total() {
-    return this.state.reduce((prev, product) => prev + product.price, 0);
+    return this.state.reduce((prev, product) => {
+      if (product.count > 0) {
+        return prev + product.price * product.count;
+      }
+      return prev + product.price;
+    }, 0);
   }
 
   get items() {

@@ -7,8 +7,10 @@ function App() {
     return (
         <div class="flex flex-col p-20">
             <Title />
-            <Products />
-            <ShoppingCart />
+            <div className="grid grid-cols-2 gap-10">
+                <Products />
+                <ShoppingCart />
+            </div>
         </div>
     );
 }

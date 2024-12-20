@@ -11,10 +11,10 @@ export default function () {
 }
 
 const items: Product[] = [
-    { name: "Shoes", price: 10 },
-    { name: "Jumper", price: 20 },
-    { name: "Tennis Racket", price: 30 },
-    { name: "Tennis Balls", price: 5 },
-    { name: "Hat", price: 5 },
-    { name: "Socks", price: 2 },
+    { id: "p-one", name: "Shoes", price: 10 },
+    { id: "p-two", name: "Jumper", price: 20 },
+    { id: "p-three", name: "Tennis Racket", price: 30 },
+    { id: "p-four", name: "Tennis Balls", price: 5 },
+    { id: "p-five", name: "Hat", price: 5 },
+    { id: "p-six", name: "Socks", price: 2 },
 ]

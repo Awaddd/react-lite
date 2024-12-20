@@ -32,7 +32,7 @@ export default function ({ item, action = "add" }: Props) {
             <div class="flex flex-col gap-1.5">
                 <span class="text-gray-400">{item.name}</span>
                 <span class="text-yellow-400">£{item.price}</span>
-                {"count" in item && <span>{item.count}</span>}
+                {"count" in item ? <span>{item.count}</span> : <span />}
             </div>
             {action === "add" ? AddButton : RemoveButton}
         </div>

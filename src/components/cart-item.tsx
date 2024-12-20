@@ -3,17 +3,18 @@ import { Product } from "@/types"
 
 type Props = {
     item: Product
+    index: number
     action?: "add" | "remove"
 }
 
-export default function ({ item, action = "add" }: Props) {
+export default function ({ item, index, action = "add" }: Props) {
     function addToCart() {
         console.log("Adding to cart", item)
         cart.add(item)
     }
 
     function removeFromCart() {
-        cart.remove(item.id)
+        cart.remove(index)
     }
 
     const AddButton = <button class="text-white" onClick={addToCart}>Add to cart</button>

@@ -5,7 +5,7 @@ export default function () {
     return (
         <div class="mt-10 flex flex-col gap-4">
             <h1 class="text-gray-300 text-2xl font-semibold">Products</h1>
-            {items.map(item => <CartItem item={item} />)}
+            {items.map((item, i) => <CartItem index={i} item={item} />)}
         </div>
     )
 }

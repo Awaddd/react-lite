@@ -10,8 +10,8 @@ class CartState extends ObservableState<Product[]> {
     this.set([...this.state, item]);
   }
 
-  remove(id: Product["id"]) {
-    const updated = this.state.filter((item) => item.id !== id);
+  remove(index: number) {
+    const updated = this.state.filter((_, j) => index !== j);
     this.set(updated);
   }
 }

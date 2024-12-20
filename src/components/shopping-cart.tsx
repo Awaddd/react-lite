@@ -1,15 +1,13 @@
+import { render } from "@/lib/render"
 import CartItem from "./cart-item"
 import cart from "@/state/cart"
 
 export default function () {
     cart.subscribe(items => {
-        console.log("items", items)
-        const el = document.getElementById("shopping-cart-items")
-        if (!el) return
-
-        const content = items.map((item, i) => <CartItem index={i} item={item} action="remove" />)
-        el.innerHTML = ""
-        el.append(...content)
+        render(
+            document.getElementById("shopping-cart-items"),
+            items.map((item, i) => <CartItem index={i} item={item} action="remove" />)
+        )
     })
 
     return (

@@ -2,7 +2,7 @@ type Target = HTMLElement | null;
 type Content = HTMLElement | HTMLElement[] | number | string | null;
 
 export function render(target: Target, content: Content) {
-  if (!target || !content) {
+  if (!target || content === null || content === undefined) {
     return;
   }
 

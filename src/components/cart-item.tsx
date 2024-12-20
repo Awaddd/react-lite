@@ -7,6 +7,8 @@ type Props = {
 };
 
 export default function ({ item, action = "add" }: Props) {
+    const amount = "count" in item ? item.price * item.count : item.price;
+
     function addToCart() {
         cart.add(item);
     }
@@ -39,7 +41,7 @@ export default function ({ item, action = "add" }: Props) {
                         </span>
                     ) : <span />}
                 </div>
-                <span class="text-yellow-400">£{item.price}</span>
+                <span class="text-yellow-400">£{amount}</span>
             </div>
             {action === "add" ? AddButton : RemoveButton}
         </div>

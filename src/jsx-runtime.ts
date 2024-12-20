@@ -1,3 +1,5 @@
+// jsx ref: https://michealpearce.dev/custom-jsx-with-vite-typescript/
+
 declare global {
     namespace JSX {
         type IntrinsicElements = Record<

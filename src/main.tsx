@@ -5,8 +5,7 @@ import "./index.css";
 
 function App() {
     return (
-        <div class="flex flex-col p-20">
-            <h1 class="text-4xl font-bold text-green-300">JS Framework</h1>
+        <div class="flex flex-col px-20 py-4">
             <CartTotal />
             <div className="grid grid-cols-2 gap-10">
                 <Products />

@@ -11,12 +11,7 @@ export function render(target: Target, content: Content) {
     target.append(...content);
   }
 
-  if (content instanceof HTMLElement) {
-    target.innerHTML = "";
-    target.append(content);
-  }
-
-  if (typeof content === "string") {
+  if (content instanceof HTMLElement || typeof content === "string") {
     target.innerHTML = "";
     target.append(content);
   }

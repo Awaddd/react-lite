@@ -8,7 +8,6 @@ type Props = {
 
 export default function ({ item, action = "add" }: Props) {
     function addToCart() {
-        console.log("Adding to cart", item);
         cart.add(item);
     }
 
@@ -21,6 +20,7 @@ export default function ({ item, action = "add" }: Props) {
             Add
         </button>
     );
+
     const RemoveButton = (
         <button class="text-gray-400" onClick={removeFromCart}>
             Remove

@@ -1,5 +1,5 @@
 type Target = HTMLElement | null;
-type Content = HTMLElement | HTMLElement[] | null;
+type Content = HTMLElement | HTMLElement[] | number | string | null;
 
 export function render(target: Target, content: Content) {
   if (!target || !content) {
@@ -14,5 +14,15 @@ export function render(target: Target, content: Content) {
   if (content instanceof HTMLElement) {
     target.innerHTML = "";
     target.append(content);
+  }
+
+  if (typeof content === "string") {
+    target.innerHTML = "";
+    target.append(content);
+  }
+
+  if (typeof content === "number") {
+    target.innerHTML = "";
+    target.append(String(content));
   }
 }

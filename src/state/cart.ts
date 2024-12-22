@@ -32,16 +32,14 @@ class CartState extends ObservableState<CartProduct[]> {
     }
 
     remove(item: CartProduct) {
-        if (item.count > 1) {
-            const index = this.state.findIndex(({ id }) => id === item.id);
-            const clone = this.state.slice();
-            clone[index].count--;
-            this.set(clone);
-            return;
+        if (item.count <= 1) {
+            return this.set(this.state.filter(({ id }) => id !== item.id));
         }
 
-        const updated = this.state.filter(({ id }) => id !== item.id);
-        this.set(updated);
+        const index = this.state.findIndex(({ id }) => id === item.id);
+        const clone = this.state.slice();
+        clone[index].count--;
+        this.set(clone);
     }
 }
 
